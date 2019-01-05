@@ -5,6 +5,7 @@ import App from './App'
 import ElementUI from 'element-ui'
 import Http from '@/plugins/http'
 import 'element-ui/lib/theme-chalk/index.css'
+import moment from 'moment'
 import '@/assets/index.css'
 import router from './router'
 
@@ -17,6 +18,11 @@ import router from './router'
 Vue.use(ElementUI)
 //使用axios
 Vue.use(Http)
+
+//处理日期的过滤器
+Vue.filter('format',(v)=>{
+   return moment(v).format("YYYY-MM-DD");
+})
 
 Vue.config.productionTip = false
 

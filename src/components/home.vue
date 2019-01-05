@@ -18,6 +18,7 @@
     <el-container>
       <el-aside width="200px" class="aside">
         <el-menu
+          router
           default-active="2"
           class="el-menu-vertical-demo"
           @open="handleOpen"
@@ -30,7 +31,7 @@
               <span>用户管理</span>
             </template>
 
-            <el-menu-item index="1-3">
+            <el-menu-item index="users">
               <i class="el-icon-success"></i>
               用户列表
             </el-menu-item>
@@ -98,7 +99,9 @@
 
         </el-menu>
       </el-aside>
-      <el-main class="main">Main</el-main>
+      <el-main class="main">
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -123,7 +126,7 @@ export default {
             });
             this.$message.success("退出成功");
         },
-
+        
       handleOpen(key, keyPath) {
         console.log(key, keyPath);
       },

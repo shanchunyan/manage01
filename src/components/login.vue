@@ -51,17 +51,21 @@ export default {
     //  }
     async handleLogin() {
       const res = await this.$http.post("login", this.formData);
+      console.log(res);
       const {data:{meta:{msg,status},data}}= res;
-      localStorage.setItem("token",data.token);
+
+     console.log(data);
       if (status === 200) {
         //  this.$message({
         // type: 'info',
         // message: msg
         // });
         // this.$message.success(msg);
+        localStorage.setItem("token",data.token);
         this.$router.push({
           name: "home"
         });
+         
       } else {
         //   this.$message({
         // type: 'info',
